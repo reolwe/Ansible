@@ -9,7 +9,7 @@ services:
 
 
   tomcat:
-    imaeg: tomcat:latest
+    image: tomcat:latest
     volumes:
       - ./tomcat/webapps:/usr/local/tomcat/webapps
     ports:
