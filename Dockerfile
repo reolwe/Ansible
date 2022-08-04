@@ -11,3 +11,4 @@ RUN apt install -y maven
 WORKDIR /boxfuse-sample-java-war-hello/
 RUN ls -l
 RUN mvn package
+CMD ["mvn"]
