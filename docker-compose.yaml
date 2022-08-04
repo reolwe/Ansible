@@ -2,15 +2,14 @@
 version '3'
 services:
   maven:
-    build:
-      context: dockerfiles
-      dockerfile: maven/Dockerfile
+    build: maven
     volumes:
+      - ./tomcat/webapps://boxfuse-sample-java-war-hello/target
 
 
 
   tomcat:
-    build: tomcat:latest
+    imaeg: tomcat:latest
     volumes:
       - ./tomcat/webapps:/usr/local/tomcat/webapps
     ports:
