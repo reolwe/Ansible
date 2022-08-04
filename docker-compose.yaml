@@ -1,1 +1,21 @@
 ---
+version '3'
+services:
+  maven:
+    build:
+      context: dockerfiles
+      dockerfile: Dockerfile
+    volumes:
+
+
+
+  tomcat:
+    build: tomcat:latest
+    volumes:
+      - ./tomcat/webapps:/usr/local/tomcat/webapps
+    ports:
+      - 8080:8080
+    enviroment:
+      - LC_ALL: ru_RU.UTF-8
+    depends_on:
+      - maven
