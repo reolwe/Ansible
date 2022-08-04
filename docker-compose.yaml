@@ -9,7 +9,7 @@ services:
 
 
   tomcat:
-    image: tomcat:latest
+    image: tomcat:8-jre8
     volumes:
       - ./tomcat/webapps:/usr/local/tomcat/webapps
     ports:
