@@ -30,7 +30,7 @@
       clone: yes
       update: yes
   - name: Maven build app
-      command: mvn package
+    command: mvn package
       chdir: /home/mikhail/boxfuse-sample-java-war-hello/
   - name: Copy artefact to master node
     copy:
