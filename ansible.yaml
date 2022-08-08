@@ -53,3 +53,4 @@
       copy:
         src: /home/mikhail/hello-1.0.war
         dest: /var/lib/tomcat9/webapps/
+        remote_src: no
