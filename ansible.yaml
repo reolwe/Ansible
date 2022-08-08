@@ -37,6 +37,7 @@
     fetch:
       src: /home/mikhail/boxfuse/target/hello-1.0.war
       dest: /home/mikhail/
+      flat: yes
 
 
 - name: Install prod-packages
