@@ -35,7 +35,7 @@
       chdir: /home/mikhail/boxfuse/
   - name: Copy artefact to master node
     copy:
-      src: /home/mikhail/boxfuse-sample-java-war-hello/target/hello-1.0.txt
+      src: /home/mikhail/boxfuse/target/hello-1.0.txt
       dest: /home/mikhail/hello-1.0.txt
       remote_src: yes
 
