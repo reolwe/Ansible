@@ -32,7 +32,7 @@
   - name: Maven build app
     command: mvn package
     args:
-      chdir: /home/mikhail/boxfuse/boxfuse-sample-java-war-hello/
+      chdir: /home/mikhail/boxfuse/
   - name: Copy artefact to master node
     copy:
       src: /home/mikhail/boxfuse-sample-java-war-hello/target/hello-1.0.txt
