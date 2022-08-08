@@ -18,37 +18,37 @@
       state: present
 
 
-    - name: Install maven
+  - name: Install maven
       apt:
         name: maven
         state: present
 
-    - name: Git clone boxfuse
-        git:
-          repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-          dest: /home/mikhail/
-          clone: yes
-          update: yes
-    - name: Maven build app
-        command: mvn package
-        chdir: /home/mikhail/boxfuse-sample-java-war-hello/
-    - name: Copy artefact to master node
-        copy:
-          src: /home/mikhail/boxfuse-sample-java-war-hello/target/hello-1.0.txt
-          dest: /home/mikhail/hello-1.0.txt
-          remote_src: yes
+  - name: Git clone boxfuse
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /home/mikhail/
+        clone: yes
+        update: yes
+  - name: Maven build app
+      command: mvn package
+      chdir: /home/mikhail/boxfuse-sample-java-war-hello/
+  - name: Copy artefact to master node
+      copy:
+        src: /home/mikhail/boxfuse-sample-java-war-hello/target/hello-1.0.txt
+        dest: /home/mikhail/hello-1.0.txt
+        remote_src: yes
 
-  name: Install prod-packages
-    hosts: prod
-    become: yes
+- name: Install prod-packages
+  hosts: prod
+  become: yes
 
-    tasks:
-      - name: Install tomcat9 package
-        apt:
-          name: tomcat9
-          state: present
+  tasks:
+    - name: Install tomcat9 package
+      apt:
+        name: tomcat9
+        state: present
 
-      - name: Copy arteafct to prod
-        copy:
-          src: /home/mikhail/hello-1.0.txt
-          dest: /var/lib/tomcat9/webapps/
+    - name: Copy arteafct to prod
+      copy:
+        src: /home/mikhail/hello-1.0.txt
+        dest: /var/lib/tomcat9/webapps/
