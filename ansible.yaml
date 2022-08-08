@@ -7,7 +7,7 @@
   tasks:
   - name: Install open-jdk package
     apt:
-      name: openjdk-8-jbk
+      name: openjdk-8-jdk
       state: present
 
 
