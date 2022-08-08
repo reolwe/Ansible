@@ -50,10 +50,11 @@
         name: tomcat9
         state: present
 
+
     - name: Synchronize arteafct to prod
       synchronize:
-        mode: pull
-        src: /home/mikhail/hello-1.0.war
+
+        src: ../hello-1.0.war
         dest: /var/lib/tomcat9/webapps/hello-1.0.war
-      delegate_to: localhost
+
 
