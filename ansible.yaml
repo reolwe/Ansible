@@ -36,7 +36,7 @@
   - name: Copy artefact to master node
     fetch:
       src: /home/mikhail/boxfuse/target/hello-1.0.war
-      dest: /home/mikhail/hello-1.0.war
+      dest: /home/mikhail/
 
 
 - name: Install prod-packages
