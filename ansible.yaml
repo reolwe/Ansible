@@ -1,0 +1,32 @@
+
+---
+- name: Install build-packages
+  hosts: build
+  become: yes
+
+  tasks:
+  - name: Ensure open-jdk package is present
+    apt:
+      name: openjdk-8-jbk
+      state: present
+
+
+
+  - name: Install git
+    apt:
+      name: git
+      state: present
+
+
+    - name: Install maven
+      apt:
+        name: maven
+        state: present
+
+    - name: Git clone boxfuse
+        git:
+          repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+          dest: /home/mikhail/
+          clone: yes
+          update: yes
+
