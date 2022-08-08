@@ -50,8 +50,9 @@
         name: tomcat9
         state: present
 
-    - name: Copy arteafct to prod
-      copy:
+    - name: Synchronize arteafct to prod
+      synchronize:
+        mode: pull
         src: /home/mikhail/hello-1.0.war
-        dest: /var/lib/tomcat9/webapps/
+        dest: /var/lib/tomcat9/webapps/hello-1.0.war
 
