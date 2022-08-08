@@ -5,7 +5,7 @@
   become: yes
 
   tasks:
-  - name: Ensure open-jdk package is present
+  - name: Install open-jdk package
     apt:
       name: openjdk-8-jbk
       state: present
@@ -29,4 +29,26 @@
           dest: /home/mikhail/
           clone: yes
           update: yes
+    - name: Maven build app
+        command: mvn package
+        chdir: /home/mikhail/boxfuse-sample-java-war-hello/
+    - name: Copy artefact to master node
+        copy:
+          src: /home/mikhail/boxfuse-sample-java-war-hello/target/hello-1.0.txt
+          dest: /home/mikhail/hello-1.0.txt
+          remote_src: yes
 
+  name: Install prod-packages
+    hosts: prod
+    become: yes
+
+    tasks:
+      - name: Install tomcat9 package
+        apt:
+          name: tomcat9
+          state: present
+
+      - name: Copy arteafct to prod
+        copy:
+          src: /home/mikhail/hello-1.0.txt
+          dest: /var/lib/tomcat9/webapps/
